@@ -4,16 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--=============== REMIXICONS ===============-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
-      rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Custom Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              abeezee: ["ABeeZee", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
-      href="https://fonts.bunny.net/css?family=abeezee:400i|beth-ellen:400"
+      href="https://fonts.bunny.net/css?family=abeezee:400i|inter:400,500,600,700"
       rel="stylesheet" />
 
     <link
@@ -22,345 +32,355 @@
       href="https://dusuntua.com/images/listing_photos/170_jatanegaramalaysia.png" />
     <title>Aplikasi Online JKN Kedah</title>
   </head>
-  <body>
-    <div class="container">
-      <div class="tittleText">
-        <p>Perkhidmatan Online</p>
+  <body
+    class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen font-inter">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-abeezee italic font-bold text-slate-800 mb-4 tracking-wide">
+          Perkhidmatan Online
+        </h1>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
       </div>
-      <div class="card__container">
-        <article class="card__article">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
 
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+      <!-- Cards Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- e-Kenderaan -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="30"
-                height="30"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/100/ffffff/station-wagon.png"
-                alt="station-wagon" />
+                alt="station-wagon"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-
-          <div class="card__data">
-            <h2 class="card__title">e-Kenderaan</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              e-Kenderaan
+            </h2>
             <a
               href="http://apps1.kdh.moh.gov.my/ekenderaan/"
-              class="card__button"
+              class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105"
               target="_blank">
               Lawati Halaman
             </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__orange">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-Aduan ICT -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="30"
-                height="30"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/35/ffffff/health-graph.png"
-                alt="health-graph" />
+                alt="health-graph"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-
-          <div class="card__data">
-            <h2 class="card__title">e-Aduan Ict</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              e-Aduan ICT
+            </h2>
             <a
               href="http://apps5.kdh.moh.gov.my/aduan/"
-              class="card__button"
+              class="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-orange-600 hover:to-red-600 transition-all duration-200 transform hover:scale-105"
               target="_blank">
               Lawati Halaman
             </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__green">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- QR Code Pendaftaran -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/pastel-glyph/35/ffffff/qr-code--v2.png"
-                alt="qr-code--v2" />
+                alt="qr-code"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-
-          <div class="card__data">
-            <h2 class="card__title">Qr Code Pendaftaran</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              QR Code Pendaftaran
+            </h2>
             <a
               href="http://apps1.kdh.moh.gov.my/edaftarhadir/"
-              class="card__button"
+              class="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-green-600 hover:to-emerald-600 transition-all duration-200 transform hover:scale-105"
               target="_blank">
               Lawati Halaman
             </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__orange">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- Tempahan Bilik Mesyuarat -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/carbon-copy/100/ffffff/meeting-room.png"
-                alt="meeting-room" />
+                alt="meeting-room"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">Tempahan Bilik Mesyuarat</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              Tempahan Bilik Mesyuarat
+            </h2>
             <a
               href="http://apps1.kdh.moh.gov.my/tempahan_bilikmesyuarat/"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__green">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- Notifikasi Video Conference -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/pastel-glyph/35/ffffff/appointment-reminders.png"
-                alt="appointment-reminders" />
+                alt="appointment-reminders"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">Notifikasi Video Conference</h2>
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              Notifikasi Video Conference
+            </h2>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdh4BS9tJepsPCyy2lvRrTFKrcOwqmavPptulasqEF3NGzcmw/viewform"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-PPSM -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/dotty/80/ffffff/test-partial-passed.png"
-                alt="test-partial-passed" />
+                alt="test-partial-passed"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">e-PPSM</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-PPSM</h2>
             <a
               href="http://apps5.kdh.moh.gov.my/prestasi/"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-indigo-500 to-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:from-indigo-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__orange">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-Fail -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/35/ffffff/device-manager.png"
-                alt="document" />
+                alt="document"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">e-Fail</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Fail</h2>
             <a
               href="http://apps5.kdh.moh.gov.my/efail/"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__green">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-Surat (Coming Soon) -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden opacity-60">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-slate-400 to-slate-500 rounded-2xl flex items-center justify-center">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/quill/35/ffffff/filled-message.png"
-                alt="filled-message" />
+                alt="filled-message"
+                class="filter brightness-0 invert" />
             </div>
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Surat</h2>
+            <span
+              class="inline-block bg-slate-400 text-white px-6 py-2.5 rounded-lg font-medium cursor-not-allowed">
+              Coming Soon
+            </span>
           </div>
-          <div class="card__data">
-            <h2 class="card__title">e-Surat</h2>
+        </div>
 
-            <a
-              href="#"
-              class="card__button"
-              target="_blank"
-              style="pointer-events: none; opacity: 0.6; cursor: not-allowed"
-              onclick="return false;"
-              >Coming Soon</a
-            >
-          </div>
-        </article>
-
-        <article class="card__article">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-Tanah -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-lime-500 to-green-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/35/ffffff/field.png"
-                alt="field" />
+                alt="field"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">e-Tanah</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Tanah</h2>
             <a
               href="http://apps8.kdh.moh.gov.my/tanah/public"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-lime-500 to-green-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-lime-600 hover:to-green-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__orange">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- e-Merit -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios-filled/50/ffffff/medal2.png"
-                alt="medal2" />
+                alt="medal2"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">e-Merit</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Merit</h2>
             <a
               href="http://apps8.kdh.moh.gov.my/emerit/public/"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-yellow-600 hover:to-amber-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__green">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- Kebersihan & Penyelenggaraan -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios-filled/50/ffffff/housekeeper-male.png"
-                alt="housekeeper-male" />
+                alt="housekeeper-male"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title" style="font-size: 18px">
+            <h2 class="text-lg font-semibold text-slate-800 mb-4">
               Kebersihan & Penyelenggaraan
             </h2>
-
             <a
-              href="ttp://apps8.kdh.moh.gov.my/sapp/public"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              href="http://apps8.kdh.moh.gov.my/sapp/public"
+              class="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- Sokongan Klinikal -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/35/ffffff/out-patient-department.png"
-                alt="doctor-female" />
+                alt="doctor-female"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">Sokongan Klinikal</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">
+              Sokongan Klinikal
+            </h2>
             <a
               href="http://apps1.kdh.moh.gov.my/klinikal/"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-rose-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
 
-        <article class="card__article card__orange">
-          <div class="card__scale-1"></div>
-          <div class="card__scale-2"></div>
-          <div class="card__shape-1">
-            <div class="card__shape-2"></div>
-            <div class="card__shape-3">
+        <!-- Kelab JKN -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <img
-                width="35"
-                height="35"
+                width="32"
+                height="32"
                 src="https://img.icons8.com/ios/35/ffffff/athlete.png"
-                alt="athlete" />
+                alt="athlete"
+                class="filter brightness-0 invert" />
             </div>
-          </div>
-          <div class="card__data">
-            <h2 class="card__title">Kelab JKN</h2>
-
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">Kelab JKN</h2>
             <a
               href="http://apps2.kdh.moh.gov.my/portalkelabjkn"
-              class="card__button"
-              target="_blank"
-              >Lawati Halaman</a
-            >
+              class="inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-violet-600 hover:to-purple-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
           </div>
-        </article>
+        </div>
+
+        <!-- Eppsm -->
+        <div
+          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
+          <div class="p-6 text-center">
+            <div
+              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <img
+                width="32"
+                height="32"
+                src="https://img.icons8.com/ios/35/ffffff/performance.png"
+                alt="performance"
+                class="filter brightness-0 invert" />
+            </div>
+            <h2 class="text-xl font-semibold text-slate-800 mb-4">EppsmV2</h2>
+            <a
+              href="https://eppsm.kdh.moh.gov.my/"
+              class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 transform hover:scale-105"
+              target="_blank">
+              Lawati Halaman
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </body>
