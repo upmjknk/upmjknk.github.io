@@ -1,387 +1,389 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Perkhidmatan Online — JKN Kedah</title>
+    <meta
+      name="description"
+      content="Portal perkhidmatan dalam talian untuk kakitangan Jabatan Kesihatan Negeri Kedah. Capai semua aplikasi rasmi di satu tempat." />
+    <meta name="theme-color" content="#0f766e" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Perkhidmatan Online — JKN Kedah" />
+    <meta
+      property="og:description"
+      content="Capai semua aplikasi rasmi JKN Kedah di satu tempat." />
+    <meta property="og:image" content="https://dusuntua.com/images/listing_photos/170_jatanegaramalaysia.png" />
+    <meta name="twitter:card" content="summary" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://dusuntua.com/images/listing_photos/170_jatanegaramalaysia.png" />
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom Tailwind Config -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              abeezee: ["ABeeZee", "sans-serif"],
+              sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f0fdfa",
+                100: "#ccfbf1",
+                200: "#99f6e4",
+                300: "#5eead4",
+                400: "#2dd4bf",
+                500: "#14b8a6",
+                600: "#0d9488",
+                700: "#0f766e",
+                800: "#115e59",
+                900: "#134e4a",
+                950: "#042f2e",
+              },
+              ink: {
+                muted: "#5b6b78",
+                soft: "#334155",
+                strong: "#0f1f2c",
+              },
+            },
+            boxShadow: {
+              soft: "0 1px 2px rgba(15, 118, 110, 0.04), 0 8px 24px -12px rgba(15, 31, 44, 0.12)",
+              lift: "0 4px 12px rgba(15, 118, 110, 0.08), 0 24px 48px -20px rgba(15, 31, 44, 0.22)",
+            },
+            transitionTimingFunction: {
+              premium: "cubic-bezier(0.32, 0.72, 0, 1)",
             },
           },
         },
       };
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
-      href="https://fonts.bunny.net/css?family=abeezee:400i|inter:400,500,600,700"
+      href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800"
       rel="stylesheet" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://dusuntua.com/images/listing_photos/170_jatanegaramalaysia.png" />
-    <title>Aplikasi Online JKN Kedah</title>
+    <style>
+      :root {
+        --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #f7f8fa;
+        background-image:
+          radial-gradient(60rem 60rem at 85% -10%, rgba(20, 184, 166, 0.10), transparent 60%),
+          radial-gradient(48rem 48rem at -10% 0%, rgba(15, 118, 110, 0.08), transparent 55%);
+        background-attachment: fixed;
+      }
+
+      /* Subtle paper grain — fixed, non-interactive, GPU-friendly */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      /* Scroll-reveal entry (transform/opacity only) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.7s var(--ease-premium),
+          transform 0.7s var(--ease-premium);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Accessible focus ring */
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible {
+        outline: 2px solid #0f766e;
+        outline-offset: 3px;
+        border-radius: 0.6rem;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        * {
+          animation-duration: 0.001ms !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
   </head>
-  <body
-    class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen font-inter">
-    <div class="container mx-auto px-4 py-8 max-w-7xl">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-abeezee italic font-bold text-slate-800 mb-4 tracking-wide">
-          Perkhidmatan Online
-        </h1>
-        <div
-          class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-      </div>
 
-      <!-- Cards Grid -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- e-Kenderaan -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/100/ffffff/station-wagon.png"
-                alt="station-wagon"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              e-Kenderaan
-            </h2>
-            <a
-              href="http://apps1.kdh.moh.gov.my/ekenderaan/"
-              class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
+  <body class="min-h-screen font-sans text-ink-soft antialiased selection:bg-brand-200/60">
+    <!-- Skip link -->
+    <a
+      href="#senarai-perkhidmatan"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">
+      Langkau ke senarai perkhidmatan
+    </a>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
+      <!-- ============ HEADER ============ -->
+      <header class="pt-12 sm:pt-16 lg:pt-20">
+        <div class="flex flex-col items-center text-center">
+          <!-- Eyebrow / brand badge -->
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-700 shadow-soft backdrop-blur-sm">
+            <span class="inline-flex h-1.5 w-1.5 rounded-full bg-brand-500"></span>
+            Jabatan Kesihatan Negeri Kedah
           </div>
-        </div>
 
-        <!-- e-Aduan ICT -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/health-graph.png"
-                alt="health-graph"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              e-Aduan ICT
-            </h2>
-            <a
-              href="http://apps5.kdh.moh.gov.my/aduan/"
-              class="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-orange-600 hover:to-red-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- QR Code Pendaftaran -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/pastel-glyph/35/ffffff/qr-code--v2.png"
-                alt="qr-code"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              QR Code Pendaftaran
-            </h2>
-            <a
-              href="http://apps1.kdh.moh.gov.my/edaftarhadir/"
-              class="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-green-600 hover:to-emerald-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- Tempahan Bilik Mesyuarat -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/carbon-copy/100/ffffff/meeting-room.png"
-                alt="meeting-room"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              Tempahan Bilik Mesyuarat
-            </h2>
-            <a
-              href="http://apps1.kdh.moh.gov.my/tempahan_bilikmesyuarat/"
-              class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- Notifikasi Video Conference -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/pastel-glyph/35/ffffff/appointment-reminders.png"
-                alt="appointment-reminders"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              Notifikasi Video Conference
-            </h2>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdh4BS9tJepsPCyy2lvRrTFKrcOwqmavPptulasqEF3NGzcmw/viewform"
-              class="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-teal-600 hover:to-cyan-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- e-PPSM -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/dotty/80/ffffff/test-partial-passed.png"
-                alt="test-partial-passed"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-PPSM</h2>
-            <a
-              href="http://apps5.kdh.moh.gov.my/prestasi/"
-              class="inline-block bg-gradient-to-r from-indigo-500 to-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:from-indigo-600 hover:to-blue-700 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- e-Fail -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/device-manager.png"
-                alt="document"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Fail</h2>
-            <a
-              href="http://apps5.kdh.moh.gov.my/efail/"
-              class="inline-block bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-amber-600 hover:to-orange-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-
-        <!-- e-Surat (Coming Soon) -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden opacity-60">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-slate-400 to-slate-500 rounded-2xl flex items-center justify-center">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/quill/35/ffffff/filled-message.png"
-                alt="filled-message"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Surat</h2>
+          <!-- Wordmark -->
+          <div class="mt-7 flex items-center gap-3.5">
             <span
-              class="inline-block bg-slate-400 text-white px-6 py-2.5 rounded-lg font-medium cursor-not-allowed">
-              Coming Soon
+              class="grid h-12 w-12 place-items-center rounded-2xl bg-brand-700 text-white shadow-lift">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M11 3 4 7v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V7l-7-4Z" />
+                <path d="M12 8v6M9 11h6" />
+              </svg>
             </span>
+            <h1 class="text-3xl font-extrabold tracking-tight text-ink-strong sm:text-4xl">
+              Perkhidmatan Online
+            </h1>
           </div>
-        </div>
 
-        <!-- e-Tanah -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-lime-500 to-green-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/field.png"
-                alt="field"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Tanah</h2>
-            <a
-              href="http://apps8.kdh.moh.gov.my/tanah/public"
-              class="inline-block bg-gradient-to-r from-lime-500 to-green-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-lime-600 hover:to-green-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
+          <p class="mt-4 max-w-xl text-balance text-base leading-relaxed text-ink-muted sm:text-lg">
+            Capaian pantas ke semua aplikasi rasmi JKN Kedah dalam satu portal yang kemas dan selamat.
+          </p>
 
-        <!-- e-Merit -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-500 to-amber-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios-filled/50/ffffff/medal2.png"
-                alt="medal2"
-                class="filter brightness-0 invert" />
+          <!-- Search -->
+          <div class="mt-9 w-full max-w-md">
+            <label for="carian" class="sr-only">Cari perkhidmatan</label>
+            <div class="group relative">
+              <span class="pointer-events-none absolute inset-y-0 left-0 grid w-12 place-items-center text-ink-muted transition-colors duration-300 group-focus-within:text-brand-700">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.2-3.2" />
+                </svg>
+              </span>
+              <input
+                id="carian"
+                type="search"
+                inputmode="search"
+                autocomplete="off"
+                placeholder="Cari perkhidmatan…  (tekan / )"
+                aria-describedby="bilangan-hasil"
+                class="w-full rounded-2xl border border-slate-200/80 bg-white/80 py-3.5 pl-12 pr-4 text-[15px] text-ink-strong shadow-soft outline-none backdrop-blur-sm transition duration-300 ease-premium placeholder:text-ink-muted/70 hover:border-brand-300 focus:border-brand-400 focus:bg-white focus:shadow-lift" />
             </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">e-Merit</h2>
-            <a
-              href="http://apps8.kdh.moh.gov.my/emerit/public/"
-              class="inline-block bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-yellow-600 hover:to-amber-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
+            <p id="bilangan-hasil" class="mt-2.5 text-xs font-medium text-ink-muted" aria-live="polite"></p>
           </div>
         </div>
+      </header>
 
-        <!-- Kebersihan & Penyelenggaraan -->
+      <!-- ============ MAIN ============ -->
+      <main id="senarai-perkhidmatan" class="scroll-mt-8 pb-20 pt-14 sm:pt-16">
         <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios-filled/50/ffffff/housekeeper-male.png"
-                alt="housekeeper-male"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-lg font-semibold text-slate-800 mb-4">
-              Kebersihan & Penyelenggaraan
-            </h2>
-            <a
-              href="http://apps8.kdh.moh.gov.my/sapp/public"
-              class="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
+          id="grid-perkhidmatan"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
 
-        <!-- Sokongan Klinikal -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/out-patient-department.png"
-                alt="doctor-female"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">
-              Sokongan Klinikal
-            </h2>
-            <a
-              href="http://apps1.kdh.moh.gov.my/klinikal/"
-              class="inline-block bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-rose-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
+        <!-- Empty state -->
+        <div id="keadaan-kosong" class="hidden flex-col items-center justify-center py-20 text-center">
+          <div class="grid h-16 w-16 place-items-center rounded-2xl bg-white shadow-soft">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.2-3.2" />
+            </svg>
           </div>
+          <p class="mt-5 text-lg font-semibold text-ink-strong">Tiada perkhidmatan ditemui</p>
+          <p class="mt-1.5 text-sm text-ink-muted">Cuba kata kunci lain atau kosongkan carian.</p>
         </div>
+      </main>
 
-        <!-- Kelab JKN -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/athlete.png"
-                alt="athlete"
-                class="filter brightness-0 invert" />
+      <!-- ============ FOOTER ============ -->
+      <footer class="border-t border-slate-200/70 py-10">
+        <div class="flex flex-col items-center justify-between gap-5 sm:flex-row sm:text-left">
+          <div class="flex items-center gap-3 text-center sm:text-left">
+            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-700 text-white">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="h-4.5 w-4.5">
+                <path d="M11 3 4 7v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V7l-7-4Z" />
+              </svg>
+            </span>
+            <div>
+              <p class="text-sm font-semibold text-ink-strong">JKN Kedah · Perkhidmatan Online</p>
+              <p class="text-xs text-ink-muted">Untuk kegunaan kakitangan Jabatan Kesihatan Negeri Kedah.</p>
             </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">Kelab JKN</h2>
+          </div>
+          <div class="flex items-center gap-5">
             <a
-              href="http://apps2.kdh.moh.gov.my/portalkelabjkn"
-              class="inline-block bg-gradient-to-r from-violet-500 to-purple-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-violet-600 hover:to-purple-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
+              href="#top"
+              class="text-sm font-medium text-ink-muted transition-colors duration-200 hover:text-brand-700">
+              Kembali ke atas ↑
             </a>
+            <p class="text-xs text-ink-muted">© <span id="tahun"></span> JKN Kedah</p>
           </div>
         </div>
-
-        <!-- Eppsm -->
-        <div
-          class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden">
-          <div class="p-6 text-center">
-            <div
-              class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <img
-                width="32"
-                height="32"
-                src="https://img.icons8.com/ios/35/ffffff/performance.png"
-                alt="performance"
-                class="filter brightness-0 invert" />
-            </div>
-            <h2 class="text-xl font-semibold text-slate-800 mb-4">EppsmV2</h2>
-            <a
-              href="https://eppsm.kdh.moh.gov.my/"
-              class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2.5 rounded-lg font-medium hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 transform hover:scale-105"
-              target="_blank">
-              Lawati Halaman
-            </a>
-          </div>
-        </div>
-      </div>
+      </footer>
     </div>
+
+    <span id="top" class="sr-only"></span>
+
+    <script>
+      // ---- Icon set (consistent line icons, single stroke weight) ----
+      const I = {
+        car: '<path d="M5 11l1.6-4.2A2 2 0 0 1 8.5 5.5h7a2 2 0 0 1 1.9 1.3L19 11M5 11h14M5 11v5a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h8v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-5M5 11H4m15 0h1M7.5 14h.01M16.5 14h.01"/>',
+        chat: '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4l-5 1.6 1.6-4.4A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/>',
+        qr: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v3M17 20h3"/>',
+        room: '<path d="M3 21h18M5 21V6l8-3v18M19 21V10l-6-2M9 8.5v.01M9 12v.01M9 15.5v.01"/>',
+        bell: '<path d="M6 9a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4S6 14 6 9Z"/><path d="M10 19a2 2 0 0 0 4 0"/>',
+        chart: '<path d="M4 4v16h16M8 16v-4m4 4V9m4 7v-6"/>',
+        folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2.2h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>',
+        mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/>',
+        map: '<path d="M9 5 4 7v12l5-2 6 2 5-2V5l-5 2-6-2Z"/><path d="M9 5v12M15 7v12"/>',
+        medal: '<circle cx="12" cy="15" r="5"/><path d="m9.5 10.5-2.5-6M14.5 10.5l2.5-6M12 13.4l.7 1.4 1.5.2-1.1 1 .3 1.5-1.4-.7-1.4.7.3-1.5-1.1-1 1.5-.2.7-1.4Z"/>',
+        broom: '<path d="M19 4 9.5 13.5M14 8.5l-9 9M5 17.5C5 20 6.5 21 9 21c0-2 1.5-3 3.5-3.5L11 14 7.5 12.5 5 17.5Z"/>',
+        stethoscope: '<path d="M6 4v5a4 4 0 0 0 8 0V4M6 4H4.5M6 4h1.5M14 4h-1.5M14 4h1.5M10 17a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="13" r="2"/>',
+        users: '<circle cx="9" cy="8" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 6.2a3 3 0 0 1 0 5.6M17 14.5a5.5 5.5 0 0 1 3.5 5.5"/>',
+        gauge: '<path d="M5 18a8 8 0 1 1 14 0"/><path d="m12 14 3.5-3.5M12 14a1.4 1.4 0 1 0 0 .01"/><path d="M3 18h18"/>',
+        directory: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M5 8H3M5 12H3M5 16H3"/><circle cx="12" cy="9.5" r="1.8"/><path d="M9.2 15.5a3 3 0 0 1 5.6 0"/>',
+        shieldlock: '<path d="M12 3 5 6v5c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3Z"/><path d="m9.5 11.5 1.8 1.8 3.4-3.6"/>',
+        hospital: '<path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M10 8h4M12 6v4M9 21v-3a3 3 0 0 1 6 0v3"/>',
+        faceid: '<path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M9 10v1M15 10v1M12 10v3l-1 1M9.5 15a3.5 3.5 0 0 0 5 0"/>',
+      };
+
+      // ---- Service data (every link preserved) ----
+      const services = [
+        { name: "e-Kenderaan", desc: "Pengurusan & tempahan kenderaan rasmi", href: "http://apps1.kdh.moh.gov.my/ekenderaan/", icon: "car" },
+        { name: "e-Aduan ICT", desc: "Lapor & jejak isu teknikal ICT", href: "http://apps5.kdh.moh.gov.my/aduan/", icon: "chat" },
+        { name: "QR Code Pendaftaran", desc: "Daftar kehadiran melalui kod QR", href: "http://apps1.kdh.moh.gov.my/edaftarhadir/", icon: "qr" },
+        { name: "Tempahan Bilik Mesyuarat", desc: "Semak & tempah bilik mesyuarat", href: "http://apps1.kdh.moh.gov.my/tempahan_bilikmesyuarat/", icon: "room" },
+        { name: "Notifikasi Video Conference", desc: "Makluman sesi video conference", href: "https://docs.google.com/forms/d/e/1FAIpQLSdh4BS9tJepsPCyy2lvRrTFKrcOwqmavPptulasqEF3NGzcmw/viewform", icon: "bell" },
+        { name: "e-PPSM", desc: "Sistem pengurusan prestasi", href: "https://eppsm.kdh.moh.gov.my/", icon: "chart" },
+        { name: "e-Fail", desc: "Pengurusan fail digital", href: "http://apps5.kdh.moh.gov.my/efail/", icon: "folder" },
+        { name: "e-Surat", desc: "Pengurusan surat-menyurat", href: "http://apps5.kdh.moh.gov.my/esurat/", icon: "mail" },
+        { name: "e-Tanah", desc: "Maklumat & pengurusan tanah", href: "http://apps8.kdh.moh.gov.my/tanah/public", icon: "map" },
+        { name: "e-Merit", desc: "Rekod merit & pengiktirafan", href: "http://apps8.kdh.moh.gov.my/emerit/public/", icon: "medal" },
+        { name: "Kebersihan & Penyelenggaraan", desc: "Aduan kebersihan & penyelenggaraan", href: "http://apps8.kdh.moh.gov.my/sapp/public", icon: "broom" },
+        { name: "Sokongan Klinikal", desc: "Perkhidmatan sokongan klinikal", href: "http://apps1.kdh.moh.gov.my/klinikal/", icon: "stethoscope" },
+        { name: "Kelab JKN", desc: "Portal kelab & aktiviti kakitangan", href: "http://apps2.kdh.moh.gov.my/portalkelabjkn", icon: "users" },
+        { name: "e-Direktori", desc: "Direktori kakitangan & jabatan", href: "http://apps8.kdh.moh.gov.my/edirektori/public/", icon: "directory" },
+        { name: "e-Keselamatan", desc: "Pengurusan keselamatan & laporan", href: "http://apps8.kdh.moh.gov.my/ekeselamatan/public/", icon: "shieldlock" },
+        { name: "Kedah Healthcare Portal", desc: "Profil & maklumat fasiliti kesihatan", href: "https://profile.kdh.moh.gov.my", icon: "hospital" },
+        { name: "FaceID", desc: "Pengesahan kehadiran melalui wajah", href: "https://faceid.kdh.moh.gov.my", icon: "faceid" },
+      ];
+
+      const svgWrap = (paths, cls) =>
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="' +
+        cls + '">' + paths + "</svg>";
+
+      function cardHTML(s, i) {
+        const icon = I[s.icon] || I.folder;
+        const isSoon = s.status === "soon";
+
+        const iconTile =
+          '<div class="grid h-12 w-12 place-items-center rounded-2xl ' +
+          (isSoon ? "bg-slate-100 text-slate-400" : "bg-brand-50 text-brand-700 ring-1 ring-brand-100 transition-all duration-500 ease-premium group-hover:bg-brand-700 group-hover:text-white group-hover:ring-brand-700") +
+          '">' + svgWrap(icon, "h-6 w-6") + "</div>";
+
+        const cta = isSoon
+          ? '<span class="mt-auto inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-400">' +
+            '<span class="h-1.5 w-1.5 rounded-full bg-slate-300"></span>Akan Datang</span>'
+          : '<a href="' + s.href + '" target="_blank" rel="noopener noreferrer" ' +
+            'aria-label="Lawati halaman ' + s.name + '" ' +
+            'class="group/cta mt-auto inline-flex items-center gap-2.5 self-start rounded-full bg-brand-700 py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-premium hover:bg-brand-800 active:scale-[0.97]">' +
+            "Lawati Halaman" +
+            '<span class="grid h-7 w-7 place-items-center rounded-full bg-white/15 transition-transform duration-300 ease-premium group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5">' +
+            svgWrap('<path d="M7 17 17 7M9 7h8v8"/>', "h-3.5 w-3.5") +
+            "</span></a>";
+
+        return (
+          '<article data-name="' + (s.name + " " + s.desc).toLowerCase() + '" ' +
+          'class="reveal group flex h-full flex-col rounded-3xl border border-slate-200/70 bg-white/85 p-6 shadow-soft backdrop-blur-sm transition-all duration-500 ease-premium ' +
+          (isSoon ? "" : "hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-lift") +
+          '" style="transition-delay:' + Math.min(i * 45, 360) + 'ms">' +
+          iconTile +
+          '<h2 class="mt-5 text-lg font-bold leading-snug text-ink-strong">' + s.name + "</h2>" +
+          '<p class="mb-6 mt-1.5 text-sm leading-relaxed text-ink-muted">' + s.desc + "</p>" +
+          cta +
+          "</article>"
+        );
+      }
+
+      // ---- Render ----
+      const grid = document.getElementById("grid-perkhidmatan");
+      grid.innerHTML = services.map(cardHTML).join("");
+
+      // ---- Scroll reveal ----
+      const reveals = Array.from(document.querySelectorAll(".reveal"));
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+        );
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add("is-visible"));
+      }
+
+      // ---- Live search ----
+      const input = document.getElementById("carian");
+      const cards = Array.from(grid.children);
+      const empty = document.getElementById("keadaan-kosong");
+      const count = document.getElementById("bilangan-hasil");
+      const total = cards.length;
+
+      function applyFilter() {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+        cards.forEach((c) => {
+          const match = !q || c.dataset.name.includes(q);
+          c.classList.toggle("hidden", !match);
+          if (match) shown++;
+        });
+        empty.classList.toggle("hidden", shown !== 0);
+        empty.classList.toggle("flex", shown === 0);
+        count.textContent = q
+          ? shown + " daripada " + total + " perkhidmatan dipaparkan"
+          : total + " perkhidmatan tersedia";
+      }
+      input.addEventListener("input", applyFilter);
+      applyFilter();
+
+      // "/" shortcut to focus search
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement !== input) {
+          e.preventDefault();
+          input.focus();
+        }
+      });
+
+      // ---- Footer year ----
+      document.getElementById("tahun").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
